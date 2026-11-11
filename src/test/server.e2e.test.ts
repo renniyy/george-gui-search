@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { GEORGE_VERSION } from "../core/gui-generator.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { fileURLToPath } from "node:url";
 import { pathToFileURL } from "node:url";
@@ -46,7 +47,7 @@ test("george_version returns structured capabilities", async () => {
     const result = await client.callTool({ name: "george_version", arguments: {} });
     assert.equal(result.isError, undefined);
     const structured = result.structuredContent as any;
-    assert.equal(structured.version, "1.0.0");
+    assert.equal(structured.version, GEORGE_VERSION);
     assert.ok(structured.interfaceKinds.includes("shop"));
     assert.ok(structured.palettes.includes("midnight-nebula"));
     assert.ok(structured.knowledgeEntries >= 40);
