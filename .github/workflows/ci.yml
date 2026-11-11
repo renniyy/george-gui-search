@@ -60,7 +60,7 @@ jobs:
             p/typescript
 
       - name: Trivy filesystem scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         continue-on-error: true
         with:
           scan-type: fs
@@ -69,7 +69,7 @@ jobs:
           exit-code: "0"
 
       - name: OpenSSF Scorecard
-        uses: ossf/scorecard-action@v2
+        uses: ossf/scorecard-action@v2.5.0
         continue-on-error: true
         with:
           results_file: scorecard.sarif
