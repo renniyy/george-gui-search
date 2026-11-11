@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "george-gui-search": {
+      "command": "npx",
+      "args": ["-y", "george-gui-search"]
+    }
+  }
+}

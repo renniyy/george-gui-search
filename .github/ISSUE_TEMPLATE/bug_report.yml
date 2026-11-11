@@ -1,0 +1,48 @@
+name: Bug report
+description: Something doesn't work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Include the exact tool call JSON if you can — it makes fixes dramatically faster.
+  - type: input
+    id: version
+    attributes:
+      label: George version
+      description: Output of the george_version tool (or `npm ls george-gui-search`)
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: "v22.x"
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: MCP client
+      description: Claude Desktop / VS Code / Cursor / Zed / Inspector / custom
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, plus what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: tool-call
+    attributes:
+      label: The tool call (JSON)
+      render: json
+  - type: textarea
+    id: logs
+    attributes:
+      label: stderr output
+      description: Run `npx george-gui-search` manually and paste relevant stderr lines.
+      render: text

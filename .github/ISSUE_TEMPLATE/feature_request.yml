@@ -1,0 +1,41 @@
+name: Feature request
+description: Propose a capability or improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem you're solving
+      description: What are you trying to build, and what's blocking you today?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: What you'd like
+      description: The capability you imagine. A concrete example ("given this tool call, I'd like...") helps a lot.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - GUI generation
+        - Design systems
+        - Luau review / templates
+        - Project scaffolding
+        - Thumbnails / image providers
+        - Research / knowledge base
+        - Integrations
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Honesty check
+      options:
+        - label: I understand unfinished features are never advertised as available — my request may land on the roadmap instead of the next release.
+          required: true

@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: GEORGE GUI @Search
+message: >-
+  If this software helped you build something, cite it.
+type: software
+authors:
+  - alias: renniy
+identifiers:
+  - type: url
+    value: "https://github.com/renniyy/george-gui-search"
+description: >-
+  The AI creative-engineering MCP server for Roblox. Generates production-grade
+  GUIs, Luau script systems, design tokens, thumbnails and project scaffolds —
+  every artifact audited (WCAG contrast, touch targets, text sizes) before it
+  is returned. Build beyond imagination.
+abstract: >-
+  GEORGE GUI @Search is a Model Context Protocol server that turns natural
+  language into complete Roblox interfaces: self-contained Luau ModuleScripts
+  with theme tokens, animations, responsive layout and controller APIs, each
+  passing an automated quality audit (contrast math, touch-target sizes, text
+  sizes) before delivery. It also provides Roblox-specialised Luau static
+  analysis, secure-by-default script templates, Rojo/Rokit/Wally project
+  scaffolds, an offline deterministic thumbnail renderer, and a source-linked
+  research knowledge base.
+keywords:
+  - model-context-protocol
+  - mcp
+  - roblox
+  - luau
+  - gui
+  - design-system
+  - ai
+license: MIT
+version: 1.0.0
+date-released: "2026-11-11"
+repository-code: "https://github.com/renniyy/george-gui-search"

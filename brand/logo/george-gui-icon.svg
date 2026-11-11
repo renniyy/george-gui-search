@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="GEORGE GUI @Search icon">
+  <!-- GEORGE GUI @Search — pixel G monogram. Build beyond imagination. -->
+  <defs>
+    <linearGradient id="gg-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6886FF"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="gg-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E2440"/>
+      <stop offset="1" stop-color="#0B0E1A"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="url(#gg-bg)" stroke="#2C3354" stroke-width="4"/>
+  <!-- pixel G: 8x8 grid, cell 44px, origin (80,80) -->
+  <g fill="url(#gg-grad)">
+    <rect x="168" y="80" width="44" height="44"/>
+    <rect x="212" y="80" width="44" height="44"/>
+    <rect x="256" y="80" width="44" height="44"/>
+    <rect x="300" y="80" width="44" height="44"/>
+    <rect x="124" y="124" width="44" height="44"/>
+    <rect x="168" y="124" width="44" height="44"/>
+    <rect x="212" y="124" width="44" height="44"/>
+    <rect x="256" y="124" width="44" height="44"/>
+    <rect x="300" y="124" width="44" height="44"/>
+    <rect x="80" y="168" width="44" height="44"/>
+    <rect x="124" y="168" width="44" height="44"/>
+    <rect x="256" y="168" width="44" height="44"/>
+    <rect x="300" y="168" width="44" height="44"/>
+    <rect x="80" y="212" width="44" height="44"/>
+    <rect x="124" y="212" width="44" height="44"/>
+    <rect x="256" y="212" width="44" height="44"/>
+    <rect x="80" y="256" width="44" height="44"/>
+    <rect x="124" y="256" width="44" height="44"/>
+    <rect x="256" y="256" width="44" height="44"/>
+    <rect x="300" y="256" width="44" height="44"/>
+    <rect x="344" y="256" width="44" height="44"/>
+    <rect x="80" y="300" width="44" height="44"/>
+    <rect x="124" y="300" width="44" height="44"/>
+    <rect x="256" y="300" width="44" height="44"/>
+    <rect x="300" y="300" width="44" height="44"/>
+    <rect x="124" y="344" width="44" height="44"/>
+    <rect x="168" y="344" width="44" height="44"/>
+    <rect x="212" y="344" width="44" height="44"/>
+    <rect x="256" y="344" width="44" height="44"/>
+    <rect x="300" y="344" width="44" height="44"/>
+    <rect x="168" y="388" width="44" height="44"/>
+    <rect x="212" y="388" width="44" height="44"/>
+    <rect x="256" y="388" width="44" height="44"/>
+    <rect x="300" y="388" width="44" height="44"/>
+  </g>
+  <!-- search caret accent -->
+  <rect x="388" y="80" width="44" height="44" fill="#22D3EE"/>
+  <rect x="388" y="124" width="44" height="44" fill="#22D3EE" opacity="0.66"/>
+  <rect x="388" y="168" width="44" height="44" fill="#22D3EE" opacity="0.33"/>
+</svg>

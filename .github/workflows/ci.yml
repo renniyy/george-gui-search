@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Test (unit + MCP protocol e2e)
+        run: node --test dist/test/*.test.js
+
+      - name: Package dry-run
+        run: npm pack --dry-run
+
+  security:
+    name: Security scans
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dependency audit (npm)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Semgrep
+        uses: semgrep/semgrep-action@v1
+        continue-on-error: true
+        with:
+          config: >-
+            p/typescript
+
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@0.28.0
+        continue-on-error: true
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: "0"
+
+      - name: OpenSSF Scorecard
+        uses: ossf/scorecard-action@v2
+        continue-on-error: true
+        with:
+          results_file: scorecard.sarif
+          publish_results: false
+
+  luau-formatting:
+    name: Generated Luau is StyLua-canonical
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci && npm run build
+
+      - name: Install StyLua
+        run: |
+          curl -sL -o stylua.zip "https://github.com/JohnnyMorganz/StyLua/releases/download/v2.0.2/stylua-linux-x86_64.zip"
+          unzip -o stylua.zip && chmod +x stylua && sudo mv stylua /usr/local/bin/
+
+      - name: Emit and check every generated artifact
+        run: |
+          mkdir -p /tmp/luau-out && node --input-type=module -e "
+          import { generateGui } from './dist/core/gui-generator.js';
+          import { LUAU_TEMPLATES } from './dist/core/luau-templates.js';
+          import { writeFileSync } from 'node:fs';
+          const kinds = ['main-menu','shop','inventory','settings','hud','loading-screen','leaderboard','notifications','dialogue','quest-tracker','profile-card','custom'];
+          for (const kind of kinds) writeFileSync('/tmp/luau-out/' + kind + '.lua', generateGui({ description: kind, kind }).luau);
+          for (const t of LUAU_TEMPLATES) for (const f of t.files) writeFileSync('/tmp/luau-out/tpl-' + t.id + '-' + f.name + '.lua', f.luau);
+          "
+          stylua --config-path stylua.toml --check /tmp/luau-out/*.lua
