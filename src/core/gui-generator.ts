@@ -15,7 +15,7 @@ import { KindOptions, KindTemplate, defaults, luauStr } from "./kinds-common.js"
 import { GuiKind, GuiSpec, GuiNode, LabelNode, ButtonNode, FrameNode } from "./spec.js";
 import { finalizeLuau } from "./luau-text.js";
 
-export const GEORGE_VERSION = "1.0.1";
+export const GEORGE_VERSION = "1.0.2";
 
 export interface GenerateGuiInput {
   description: string;

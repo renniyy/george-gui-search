@@ -2,6 +2,14 @@
 
 All notable changes to GEORGE GUI @Search are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] — 2026-11-11
+
+### Fixed
+
+- Release pipeline: npm publishing now runs from CI with the `NPM_TOKEN` secret (this release was published by the workflow itself, validating the end-to-end path).
+
+[1.0.2]: https://github.com/renniyy/george-gui-search/releases/tag/v1.0.2
+
 ## [1.0.1] — 2026-11-11
 
 ### Fixed
