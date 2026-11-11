@@ -2,6 +2,16 @@
 
 All notable changes to GEORGE GUI @Search are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] — 2026-11-11
+
+### Fixed
+
+- Upgraded `zod` to `^4.6.7` (within the MCP SDK's supported peer range) to resolve advisory GHSA-mrhx-c7xc-m3w5 (memory exhaustion while validating oversized constrained collections). All 71 tests — including the full MCP protocol e2e suite — pass on zod 4.
+- CI: pinned valid `trivy-action` (`v0.36.0`) and `scorecard-action` (`v2.5.0`) versions.
+- `npm test` now uses the glob form (`node --test dist/test/*.test.js`) for reliable cross-version behavior.
+
+[1.0.1]: https://github.com/renniyy/george-gui-search/releases/tag/v1.0.1
+
 ## [1.0.0] — 2026-11-11
 
 First public release.

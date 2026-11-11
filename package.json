@@ -1,6 +1,6 @@
 {
   "name": "george-gui-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GEORGE GUI @Search \u2014 the AI creative-engineering MCP server for Roblox. Generates production-grade GUIs, Luau, design systems, thumbnails and project scaffolds. Build beyond imagination.",
   "type": "module",
   "license": "MIT",
@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "zod": "^3.25.76"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
